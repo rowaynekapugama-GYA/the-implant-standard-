@@ -32,10 +32,13 @@ document.querySelectorAll('.ba-slider').forEach(sl => {
     handle.style.left = p + '%';
   };
   let drag = false;
-  sl.addEventListener('pointerdown', e => { drag = true; sl.setPointerCapture(e.pointerId); set(e.clientX); });
+  sl.addEventListener('pointerdown', e => { drag = true; sl.setPointerCapture(e.pointerId); set(e.clientX); e.preventDefault(); });
   sl.addEventListener('pointermove', e => { if (drag) set(e.clientX); });
   sl.addEventListener('pointerup', () => drag = false);
   sl.addEventListener('pointercancel', () => drag = false);
+  // touch fallback for browsers with partial pointer-event support
+  sl.addEventListener('touchstart', e => { set(e.touches[0].clientX); }, { passive: true });
+  sl.addEventListener('touchmove', e => { set(e.touches[0].clientX); }, { passive: true });
 });
 
 // ---- open now (Australia/Melbourne) ----
@@ -121,4 +124,28 @@ if (sideNav) {
   };
   document.addEventListener('scroll', spy, { passive: true });
   spy();
+}
+
+
+// ---- BA slider intro nudge (shows it's draggable) ----
+const baIO = new IntersectionObserver(es => es.forEach(e => {
+  if (!e.isIntersecting) return;
+  const sl = e.target, after = sl.querySelector('.ba-after'), handle = sl.querySelector('.ba-handle');
+  baIO.unobserve(sl);
+  let p = 50; const to = [38, 62, 50]; let i = 0;
+  const stepAnim = () => {
+    if (i >= to.length) return;
+    const target = to[i++]; const from = p; const t0 = performance.now();
+    const tick = now => {
+      const k = Math.min((now - t0) / 450, 1);
+      p = from + (target - from) * (0.5 - Math.cos(Math.PI * k) / 2);
+      after.style.clipPath = `inset(0 0 0 ${p}%)`; handle.style.left = p + '%';
+      if (k < 1) requestAnimationFrame(tick); else setTimeout(stepAnim, 120);
+    };
+    requestAnimationFrame(tick);
+  };
+  setTimeout(stepAnim, 350);
+}), { threshold: .5 });
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('.ba-slider').forEach(sl => baIO.observe(sl));
 }
