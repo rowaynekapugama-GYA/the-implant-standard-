@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://theimplantstandard.com.au/sitemap.xml

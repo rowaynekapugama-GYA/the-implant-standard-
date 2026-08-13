@@ -1,8 +1,17 @@
+/* self-hosted fonts (subset woff2) */
+@font-face{font-family:'Inter';font-style:normal;font-weight:300;font-display:swap;src:url('../fonts/inter-300.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/inter-400.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/inter-500.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:300;font-display:swap;src:url('../fonts/poppins-300.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/poppins-400.woff2') format('woff2')}
+@font-face{font-family:'Poppins';font-style:normal;font-weight:500;font-display:swap;src:url('../fonts/poppins-500.woff2') format('woff2')}
+@font-face{font-family:'JetBrains Mono';font-style:normal;font-weight:400;font-display:swap;src:url('../fonts/jetbrains-mono-400.woff2') format('woff2')}
+
 /* ============ THE IMPLANT STANDARD — shared styles ============ */
 :root{
   --ink-0:#0b0c0f; --ink-1:#111318; --ink-2:#181a20; --ink-3:#20232a;
   --line:rgba(255,255,255,.1); --line-strong:rgba(255,255,255,.2);
-  --grey:#aab2bc; --grey-dim:#7e8590;
+  --grey:#aab2bc; --grey-dim:#848b95;
   --white:#f2f3f2;
   --neon:#dceaff; --neon-glow:rgba(160,200,255,.45);
   --btn-solid-bg:#f2f3f2; --btn-solid-text:#08090a;
@@ -31,7 +40,7 @@ section{position:relative;padding:clamp(72px,9vw,120px) 0;background:var(--ink-0
 .sec-light{
   --ink-0:#f1f2f4; --ink-1:#f1f2f4; --ink-2:#ffffff; --ink-3:#f7f8f9;
   --line:rgba(12,14,18,.12); --line-strong:rgba(12,14,18,.24);
-  --grey:#454c55; --grey-dim:#6a7079;
+  --grey:#454c55; --grey-dim:#5f6670;
   --white:#13151a;
   --neon:#13151a; --neon-glow:rgba(19,21,26,.22);
   --btn-solid-bg:#13151a; --btn-solid-text:#ffffff;
@@ -90,7 +99,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(8,9,11,.9);backdrop-fil
 .mega.mega-docs .thumb img{object-position:top;filter:grayscale(15%)}
 .mega .thumb img{width:100%;height:100%;object-fit:cover;transition:.4s}
 .mega a:hover .thumb img{transform:scale(1.05)}
-.mega h4{font-weight:500;font-size:13.5px;margin-bottom:2px;color:#fff}
+.mega h4,.mega .mg-t{display:block;font-weight:500;font-size:13.5px;margin-bottom:2px;color:#fff;font-family:'Poppins',sans-serif}
 .mega p{font-size:11.5px;color:#9aa2ac;line-height:1.45}
 .mega .mega-foot{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.1);padding:14px 6px 2px;margin-top:4px}
 .mega .mega-foot span{font-size:12px;color:#9aa2ac}
@@ -182,7 +191,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(8,9,11,.9);backdrop-fil
 .callout:hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(0,0,0,.4)}
 .callout .co-icon{width:56px;height:56px;flex:none;border-radius:14px;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;background:radial-gradient(120% 120% at 30% 20%,#1c1f26,#0d0e12)}
 .callout .co-icon svg{width:28px;height:28px;stroke:var(--neon);stroke-width:1.3;fill:none;filter:drop-shadow(0 0 5px var(--neon-glow))}
-.callout h3{font-size:17px;margin-bottom:4px}
+.callout .co-t{font-family:'Poppins',sans-serif;font-weight:500;line-height:1.2;font-size:17px;margin-bottom:4px}
 .callout p{font-size:13px;color:var(--grey)}
 .callout .co-arrow{margin-left:auto;flex:none;width:38px;height:38px;border-radius:50%;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;transition:.3s}
 .callout .co-arrow svg{width:15px;height:15px;stroke:var(--neon);stroke-width:1.6;fill:none}
@@ -244,7 +253,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(8,9,11,.9);backdrop-fil
 .h-step{display:grid;grid-template-columns:56px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
 .h-step:last-child{border-bottom:none}
 .h-step .num{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--neon);padding-top:5px;letter-spacing:.15em}
-.h-step h4{font-weight:500;font-size:17px;margin-bottom:5px}
+.h-step h3{font-weight:500;font-size:17px;margin-bottom:5px}
 .h-step p{font-size:14px;color:var(--grey)}
 @media(max-width:900px){.how .wrap{grid-template-columns:1fr}.how-visual{display:flex;justify-content:center}}
 
@@ -274,7 +283,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(8,9,11,.9);backdrop-fil
 .ba-tag{position:absolute;top:12px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;padding:5px 10px;border-radius:100px;background:rgba(8,9,11,.72);border:1px solid rgba(255,255,255,.25);color:#c6ccd4;pointer-events:none}
 .ba-tag.b{left:12px}.ba-tag.a{right:12px;color:#dceaff;border-color:rgba(220,234,255,.4)}
 .ba-meta{padding:16px 22px;display:flex;justify-content:space-between;align-items:center}
-.ba-meta h4{font-weight:500;font-size:15px}
+.ba-meta h3{font-weight:500;font-size:15px}
 .ba-meta span{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.16em;color:var(--grey-dim);text-transform:uppercase}
 @media(max-width:960px){.ba-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.ba-grid{grid-template-columns:1fr}}
@@ -332,7 +341,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(8,9,11,.9);backdrop-fil
 .consult-inner h2{font-size:clamp(28px,4.4vw,52px);margin-bottom:16px;position:relative}
 .consult-inner p{color:#aab2bc;max-width:640px;margin:0 auto 34px;position:relative}
 .consult-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
-.consult-fine{font-size:11px;color:#8a919b;margin-top:24px;position:relative}
+.consult-fine{font-size:11px;color:#98a0aa;margin-top:24px;position:relative}
 .consult-inner .btn-solid{background:#f2f3f2;color:#08090a;border-color:#f2f3f2}
 .consult-inner .btn-neon{color:#dceaff;border-color:rgba(220,234,255,.4)}
 
@@ -380,7 +389,7 @@ header{position:sticky;top:0;z-index:100;background:rgba(8,9,11,.9);backdrop-fil
 .f-radios label{cursor:pointer;padding:9px 16px;border:1px solid rgba(255,255,255,.18);border-radius:100px;font-size:12.5px;color:#c0c6ce;transition:.25s;font-family:'Inter',sans-serif;letter-spacing:0;text-transform:none}
 .f-radios input:checked+label{background:#f2f3f2;color:#0b0c0f;border-color:#f2f3f2}
 .modal .btn{width:100%;justify-content:center;margin-top:18px}
-.modal-fine{font-size:10.5px;color:#8a919b;margin-top:14px;line-height:1.6}
+.modal-fine{font-size:10.5px;color:#98a0aa;margin-top:14px;line-height:1.6}
 .modal-success{display:none;text-align:center;padding:30px 0 12px}
 .modal-success.show{display:block}
 .modal-success .ok{width:64px;height:64px;margin:0 auto 20px;border-radius:50%;border:1px solid rgba(120,235,160,.5);display:flex;align-items:center;justify-content:center}
@@ -394,11 +403,11 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.1);padding:clamp(5
 .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:clamp(28px,4vw,56px);margin-bottom:52px}
 .foot-brand .logo{font-size:19px;display:inline-block;margin-bottom:18px}
 .foot-brand p{font-size:13px;color:#9199a3;max-width:300px}
-.foot-col h5{font-family:'JetBrains Mono',monospace;font-weight:400;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#868d97;margin-bottom:18px}
-.foot-col a,.foot-col li{display:block;font-size:13px;color:#b3bac3;padding:5px 0;transition:.25s}
+.foot-col .foot-h{font-family:'JetBrains Mono',monospace;font-weight:400;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#868d97;margin-bottom:18px}
+.foot-col a,.foot-col .foot-line{display:block;font-size:13px;color:#b3bac3;padding:5px 0;transition:.25s}
 .foot-col a:hover{color:#dceaff}
-.foot-legal{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:11px;color:#8a919b}
-.foot-disclaimer{font-size:10.5px;color:#767c85;line-height:1.7;margin-top:20px}
+.foot-legal{border-top:1px solid rgba(255,255,255,.1);padding-top:26px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:11px;color:#98a0aa}
+.foot-disclaimer{font-size:10.5px;color:#8b929c;line-height:1.7;margin-top:20px}
 @media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.foot-grid{grid-template-columns:1fr}}
 
@@ -425,7 +434,7 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.1);padding:clamp(5
 .steps-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;counter-reset:step}
 .step-card{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
 .step-card .num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--neon);display:block;margin-bottom:10px}
-.step-card h4{font-size:16px;margin-bottom:7px}
+.step-card h3{font-size:16px;margin-bottom:7px}
 .step-card p{font-size:13.5px;color:var(--grey)}
 @media(max-width:700px){.steps-grid{grid-template-columns:1fr}}
 .cta-band{padding:clamp(56px,7vw,90px) 0}
@@ -490,3 +499,13 @@ footer{background:#000;border-top:1px solid rgba(255,255,255,.1);padding:clamp(5
 @media(max-width:340px){
   .logo{font-size:13px}
 }
+
+
+/* areas we serve */
+.area-chips{display:flex;flex-wrap:wrap;gap:10px}
+.area-chips a{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border:1px solid var(--line-strong);border-radius:100px;font-size:13.5px;color:var(--grey);transition:.25s;background:var(--ink-2)}
+.area-chips a:hover{color:var(--white);border-color:var(--neon);transform:translateY(-2px)}
+.area-chips a::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--neon)}
+.clinic-card{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(24px,3vw,34px)}
+.clinic-card h3{font-size:20px;margin-bottom:6px}
+.clinic-card .suburb{color:var(--grey-dim);font-size:13px;margin-bottom:18px}

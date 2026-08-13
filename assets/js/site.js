@@ -122,7 +122,12 @@ if (sideNav) {
     // flip contrast when over a light section
     sideNav.classList.toggle('on-light', current.classList.contains('sec-light'));
   };
-  document.addEventListener('scroll', spy, { passive: true });
+  let spyTick = false;
+  document.addEventListener('scroll', () => {
+    if (spyTick) return;
+    spyTick = true;
+    requestAnimationFrame(() => { spy(); spyTick = false; });
+  }, { passive: true });
   spy();
 }
 
