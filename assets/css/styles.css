@@ -590,14 +590,14 @@ footer{background:#08090b;border-top:1px solid rgba(255,255,255,.14);padding:cla
 .how .wrap{max-width:none;padding:0;display:grid;grid-template-columns:1.05fr 1fr;gap:0;align-items:stretch}
 .how-visual{position:relative;display:block;min-height:540px}
 .how-photo{position:absolute;inset:0;max-width:none;margin:0;border-radius:0;border:none}
-.how-photo img{width:100%;height:100%!important;object-fit:cover;object-position:38% center}
+.how-photo img{width:100%;height:100%!important;object-fit:cover;object-position:40% 22%}
 .how .wrap>div:last-child{padding:clamp(64px,8vw,110px) max(var(--pad),calc((100vw - var(--maxw))/2 + var(--pad))) clamp(64px,8vw,110px) clamp(32px,4vw,64px)}
 
 .ao4{padding:0}
 .ao4 .wrap{max-width:none;padding:0;grid-template-columns:1fr 1fr;gap:0;align-items:stretch}
 .ao4 .wrap>div:first-child{padding:clamp(64px,8vw,110px) clamp(32px,4vw,64px) clamp(64px,8vw,110px) max(var(--pad),calc((100vw - var(--maxw))/2 + var(--pad)))}
 .ao4-img{position:relative;height:100%;min-height:540px;border-radius:0;border:none}
-.ao4-img img{position:absolute;inset:0;width:100%;height:100%!important;object-fit:cover;object-position:center 30%}
+.ao4-img img{position:absolute;inset:0;width:100%;height:100%!important;object-fit:cover;object-position:38% 26%}
 .ao4-img .cap{left:auto;right:18px;bottom:18px}
 
 @media(max-width:900px){
@@ -607,4 +607,12 @@ footer{background:#08090b;border-top:1px solid rgba(255,255,255,.14);padding:cla
   .ao4 .wrap{grid-template-columns:1fr}
   .ao4 .wrap>div:first-child{padding:clamp(48px,7vw,72px) var(--pad);order:1}
   .ao4-img{min-height:0;aspect-ratio:16/10;order:2}
+}
+
+
+/* keep full-bleed photo columns at sane heights */
+.how-visual,.ao4-img{max-height:760px}
+.how .wrap,.ao4 .wrap{align-items:stretch}
+@media(min-width:901px){
+  .how .wrap>div:last-child,.ao4 .wrap>div:first-child{align-self:center}
 }
